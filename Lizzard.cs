@@ -96,7 +96,7 @@ namespace Lizzard
                 {
                     if (MouseHelper.GetMouseState())
                     {
-                        if (++counter > 10 && foregroundProcess != null && foregroundProcess.Id == process.Id) // ~50 ms on mouse to prevent double clicks
+                        if (++counter > 20 && foregroundProcess != null && foregroundProcess.Id == process.Id) // ~100 ms on mouse to prevent double clicks
                         {
                             Task.Run(() =>
                             {
