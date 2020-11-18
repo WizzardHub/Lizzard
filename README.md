@@ -3,4 +3,4 @@
  
 # Supported Versions
  Current supported versions :
- [Vanilla, Lunar] | Maybe it will work on non listed versions
+ [Vanilla, Forge, Lunar] | Maybe it will work on non listed versions
