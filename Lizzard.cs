@@ -2,7 +2,6 @@
 using Lizzard.Locator;
 using Lizzard.Math;
 using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -41,7 +40,7 @@ namespace Lizzard
 
             Task.Run(() =>
             {
-                while(true)
+                while (true)
                 {
                     process = locator.GetInstance();
                     foregroundProcess = ForegroundWindowHelper.GetForegrondWindow();
@@ -97,20 +96,20 @@ namespace Lizzard
                 {
                     if (MouseHelper.GetMouseState())
                     {
-                        if (++counter > 50 && foregroundProcess != null && foregroundProcess.Id == process.Id) // ~50 ms on mouse to prevent double clicks
+                        if (++counter > 10 && foregroundProcess != null && foregroundProcess.Id == process.Id) // ~50 ms on mouse to prevent double clicks
                         {
-                            Task.Run(() => // prevent invalid patterns flaws
+                            Task.Run(() =>
                             {
-                                MouseHelper.PostMessage(1, process.MainWindowHandle);
-                                Thread.Sleep(10);
                                 MouseHelper.PostMessage(0, process.MainWindowHandle);
+                                Thread.Sleep(10);
+                                MouseHelper.PostMessage(1, process.MainWindowHandle);
                             });
                             Thread.Sleep(pattern.Evaluate());
                         }
                     }
                     else counter = 0;
 
-                    Thread.Sleep(1);
+                    Thread.Sleep(5);
                 }
             });
 
