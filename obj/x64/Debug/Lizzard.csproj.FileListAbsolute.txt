@@ -1,0 +1,7 @@
+C:\Users\Lucas\source\repos\Lizzard\Lizzard\bin\x64\Debug\Lizzard.exe.config
+C:\Users\Lucas\source\repos\Lizzard\Lizzard\bin\x64\Debug\Lizzard.exe
+C:\Users\Lucas\source\repos\Lizzard\Lizzard\bin\x64\Debug\Lizzard.pdb
+C:\Users\Lucas\source\repos\Lizzard\Lizzard\obj\x64\Debug\Lizzard.csprojAssemblyReference.cache
+C:\Users\Lucas\source\repos\Lizzard\Lizzard\obj\x64\Debug\Lizzard.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\source\repos\Lizzard\Lizzard\obj\x64\Debug\Lizzard.exe
+C:\Users\Lucas\source\repos\Lizzard\Lizzard\obj\x64\Debug\Lizzard.pdb
