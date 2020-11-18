@@ -20,6 +20,8 @@ namespace Lizzard
             Console.CursorVisible = false;
             Console.BufferHeight = Console.WindowHeight;
 
+            ConsoleHelper.DisableSelection();
+
             /*
              * Pattern
              */
