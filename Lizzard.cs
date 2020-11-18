@@ -1,4 +1,6 @@
-﻿using Lizzard.Math;
+﻿using Lizzard.Helper;
+using Lizzard.Locator;
+using Lizzard.Math;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,14 +27,28 @@ namespace Lizzard
             var pattern = new Pattern();
 
             /*
-             * Async Key State Thread
+             * Minecraft Instance Process
+             */
+
+            Console.Write("Minecraft Window Title : ", Console.ForegroundColor = ConsoleColor.Yellow);
+            Console.CursorVisible = !Console.CursorVisible;
+            var locator = new InstanceLocator(Console.ReadLine());
+            Console.CursorVisible = !Console.CursorVisible;
+            Console.Clear();
+
+            /*
+             * Async Insert Key State Thread
              */
 
             Task.Run(() =>
             {
                 while (true)
                 {
-                    // test
+                    if (AsyncKeyHelper.isKeyDown(45))
+                    {
+                        Console.Beep();
+                        Environment.Exit(0);
+                    }
                     Thread.Sleep(100);
                 }
             });
