@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Lizzard.Helper
 {
     class AsyncKeyHelper
     {
-        public static bool isKeyDown(int key)
+        public static bool isKeyDown(Keys key)
         {
-            byte[] result = BitConverter.GetBytes(GetAsyncKeyState(key));
+            byte[] result = BitConverter.GetBytes(GetAsyncKeyState((short)key));
             return result[0] == 1;
         }
 

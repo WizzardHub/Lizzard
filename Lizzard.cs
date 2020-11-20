@@ -4,11 +4,15 @@ using Lizzard.Math;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Lizzard
 {
     class Lizzard
     {
+
+        private static bool toggled;
+
         static void Main(string[] args)
         {
 
@@ -68,18 +72,20 @@ namespace Lizzard
             }
 
             /*
-             * Async Insert Key State Thread
+             * Async Key State Thread
              */
 
             Task.Run(() =>
             {
                 while (true)
                 {
-                    if (AsyncKeyHelper.isKeyDown(45))
+                    if (AsyncKeyHelper.isKeyDown(Keys.Insert))
                     {
                         Console.Beep();
                         Environment.Exit(0);
                     }
+                    if (AsyncKeyHelper.isKeyDown(Keys.F4))
+                        toggled = !toggled;
                     Thread.Sleep(100);
                 }
             });
@@ -94,7 +100,7 @@ namespace Lizzard
             {
                 while (true)
                 {
-                    if (MouseHelper.GetMouseState())
+                    if (MouseHelper.GetMouseState() && toggled)
                     {
                         if (++counter > 20 && foregroundProcess != null && foregroundProcess.Id == process.Id) // ~100 ms on mouse to prevent double clicks
                         {
